@@ -3,18 +3,13 @@ import mediapipe as mp
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 
-# For static images:
-hands = mp_hands.Hands(
-    static_image_mode=True,
-    max_num_hands=2,
-    min_detection_confidence=0.5) 
-
 # For webcam input:
 cap = cv2.VideoCapture(0)
-hands = mp_hands.Hands(
+with mp_hands.Hands(
     min_detection_confidence=0.5,
-    min_tracking_confidence=0.5) 
-while cap.isOpened():
+    max_num_hands=1,
+    min_tracking_confidence=0.5) as hands:
+  while cap.isOpened():
     success, image = cap.read()
     if not success:
       print("Ignoring empty camera frame.")
@@ -39,6 +34,4 @@ while cap.isOpened():
     cv2.imshow('MediaPipe Hands', image)
     if cv2.waitKey(5) & 0xFF == 27:
       break
-hands.close()
 cap.release()
-cv2.destroyAllWindows()
