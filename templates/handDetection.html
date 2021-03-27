@@ -6,9 +6,16 @@
     <h3>Real Time Hand Detection</h3>
 </div>
 
+ <br/> 
 
-<div align="center">
-    <img src="{{ url_for('handRealTimeCam') }}">
+<div class="text-center">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+    <div align="center">
+        <img src="{{ url_for('handRealTimeCam') }}"> 
+    
 </div>
 
 <br>
@@ -16,5 +23,21 @@
 <div align="center">
     <a class="btn btn-outline-primary" href="{{ url_for('home') }}">Back to Homepage</a>
 </div>
+
+<script>
+    document.onreadystatechange = function() {
+        if (document.readyState !== "complete") {
+            document.querySelector(
+              "div").style.visibility = "visible";
+            document.querySelector(
+              ".spinner-grow").style.visibility = "visible";
+        } else {
+            document.querySelector(
+              ".spinner-grow").style.display = "none";
+            document.querySelector(
+              "div").style.visibility = "visible";
+        }
+    };
+</script>
 
 {% endblock %}
