@@ -6,9 +6,9 @@ mp_hands = mp.solutions.hands
 # For webcam input:
 cap = cv2.VideoCapture(0)
 with mp_hands.Hands(
-    min_detection_confidence=0.5,
-    max_num_hands=1,
-    min_tracking_confidence=0.5) as hands:
+    min_detection_confidence=0.8,
+    max_num_hands=2,
+    min_tracking_confidence=0.8) as hands:
   while cap.isOpened():
     success, image = cap.read()
     if not success:

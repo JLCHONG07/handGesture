@@ -1,14 +1,13 @@
 from flask import Flask,Response
 from flask import render_template
-from hand import design
+from hand import classControl
 app = Flask(__name__)
 
 #URL
-app.add_url_rule('/','handDection',design.dectionPage)
-app.add_url_rule('/page2','page2test',design.pageNo2)
-
-app.add_url_rule('/page2/handCam','handCam',design.handRealtime)
-
+app.add_url_rule('/','home',classControl.homePage)
+app.add_url_rule('/tryItOut','tryItOut',classControl.tryItOut)
+app.add_url_rule('/tryItOut/handDetection','handDetection',classControl.handDetection)
+app.add_url_rule('/tryItOut/hanDetection/handRealTimeCam','handRealTimeCam',classControl.handRealtime)
 
 
 

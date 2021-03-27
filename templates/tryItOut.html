@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+{% block title %}Real Time Hand Detection {% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Hand Detection</h5>
+          <p class="card-text">Hands can be detect and track with 70% accuracy.</p>
+          <a href="{{ url_for('handDetection') }}" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Hand Gesture Recognize</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Hand Controller</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
