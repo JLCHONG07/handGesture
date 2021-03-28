@@ -8,9 +8,9 @@ mp_hands = mp.solutions.hands
 def openCam():
     cap = cv2.VideoCapture(0)
     with mp_hands.Hands(
-        min_detection_confidence=0.7,
+        min_detection_confidence=0.75,
         max_num_hands=2,
-        min_tracking_confidence=0.7) as hands:
+        min_tracking_confidence=0.75)as hands:
     
      while cap.isOpened():
         success, image = cap.read()

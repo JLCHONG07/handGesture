@@ -3,6 +3,7 @@ from flask import render_template
 from hand import classControl
 app = Flask(__name__)
 
+
 #URL
 app.add_url_rule('/','home',classControl.homePage)
 app.add_url_rule('/tryItOut','tryItOut',classControl.tryItOut)
