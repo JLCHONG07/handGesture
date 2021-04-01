@@ -7,8 +7,12 @@ app = Flask(__name__)
 #URL
 app.add_url_rule('/','home',classControl.homePage)
 app.add_url_rule('/tryItOut','tryItOut',classControl.tryItOut)
+
+
 app.add_url_rule('/tryItOut/handDetection','handDetection',classControl.handDetection)
 app.add_url_rule('/tryItOut/hanDetection/handRealTimeCam','handRealTimeCam',classControl.handRealtime)
+app.add_url_rule('/tryItOut/hanDetection/handRealTimeCam/handDetection2','handCamOnly',classControl.handCamOnly)
+app.add_url_rule('/tryItOut/hanDetection/handRealTimeCam/handDetection2/handRealTimeCam2','handRealTimeCam2',classControl.handRealtime2)
 
 
 

@@ -1,6 +1,6 @@
 from flask import render_template, request, Response
 import os
-from hand.handmesh import openCam
+from hand.handmesh import openCam, secondMode
 
 def homePage():
     return render_template('home.html')
@@ -13,3 +13,9 @@ def handDetection():
 
 def handRealtime():
    return Response(openCam(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+def handCamOnly():
+    return render_template('handOnlyMode.html') 
+
+def handRealtime2():
+    return Response(secondMode(), mimetype='multipart/x-mixed-replace; boundary=frame')
