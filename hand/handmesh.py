@@ -12,6 +12,7 @@ def openCam():
     
     cap = cv2.VideoCapture(0)
     with mp_hands.Hands(
+        static_image_mode=False,
         min_detection_confidence=0.75,
         max_num_hands=2,
         min_tracking_confidence=0.75)as hands:
@@ -61,6 +62,7 @@ def secondMode():
     
     cap = cv2.VideoCapture(0)
     with mp_hands.Hands(
+        static_image_mode=False,
         min_detection_confidence=0.75,
         max_num_hands=2,
         min_tracking_confidence=0.75)as hands:
@@ -93,11 +95,18 @@ def secondMode():
         image= cv2.putText(image, f'FPS:{int(fps)}', (7, 70), font, 3, (100, 255, 0), 3, cv2.LINE_AA)
 
         #make it show only joint of hands
-        mask=np.zeros(image.shape[:],dtype="uint8")
-        image= cv2.putText(mask, f'FPS:{int(fps)}', (7, 70), font, 3, (100, 255, 0), 3, cv2.LINE_AA)
+        image=np.zeros(image.shape[:],dtype="uint8")
+        image= cv2.putText(image, f'FPS:{int(fps)}', (7, 70), font, 3, (100, 255, 0), 3, cv2.LINE_AA)
         if results.multi_hand_landmarks:
             for hand_landmarks in results.multi_hand_landmarks:
-              mp_drawing.draw_landmarks(
+                #Loop for landmarks of the hand which able to adding the landmarks on the default lamdmarks
+                for id, lm in enumerate(hand_landmarks.landmark):
+                    #print(id,lm)
+                    h,w,c=image.shape
+                    cx,cy=int(lm.x*w),int(lm.y*h)
+                    print(id,cx,cy)
+                    cv2.circle(image,(cx,cy),15,(255,0,255),cv2.FILLED)
+                mp_drawing.draw_landmarks(
                 image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
         #cv2.imshow('MediaPipe Hands', image)
         #return image
