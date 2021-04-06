@@ -92,7 +92,7 @@ def secondMode():
         # Draw the hand annotations on the image.
         image.flags.writeable = True
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-        image= cv2.putText(image, f'FPS:{int(fps)}', (7, 70), font, 3, (100, 255, 0), 3, cv2.LINE_AA)
+
 
         #make it show only joint of hands
         image=np.zeros(image.shape[:],dtype="uint8")
