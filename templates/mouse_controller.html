@@ -1,0 +1,16 @@
+{% extends 'home.html' %}
+{% block title %}Mouse Controller with RealTime Hand Detection{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h3>Real Time Hand Detection Mode 1</h3>
+</div>
+
+ <br/> 
+
+<div align="center">
+    <a class="btn btn-outline-primary" href="{{ url_for('open_window_ui') }}">Open Window UI</a>
+    <a class="btn btn-outline-primary" href="{{ url_for('home') }}">Back to Homepage</a>
+</div>
+
+{% endblock %}

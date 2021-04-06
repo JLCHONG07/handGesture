@@ -1,6 +1,7 @@
 from flask import render_template, request, Response
 import os
 from hand.handmesh import openCam, secondMode
+from mouse_controller_with_hand_gesture import mouse_controller as mc
 
 def homePage():
     return render_template('home.html')
@@ -17,5 +18,14 @@ def handRealtime():
 def handCamOnly():
     return render_template('handOnlyMode.html') 
 
+
 def handRealtime2():
     return Response(secondMode(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+def mouse_controller_with_hand():
+    return render_template('mouse_controller.html')
+
+
+def open_window_ui():
+    return Response(mc.main())
