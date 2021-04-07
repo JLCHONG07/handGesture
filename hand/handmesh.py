@@ -114,7 +114,9 @@ def secondMode():
                 image=cv2.putText(image, f'Left : {str(cx)} {str(cy)}', (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (100, 255, 0), 3)
                 image=cv2.putText(image, f'Right: {str(cx2)} {str(cy2)}', (10, 110), cv2.FONT_HERSHEY_PLAIN, 3, (100, 255, 0), 3)
                 #image=cv2.putText(image, f'{str(cy)}', (50, 80), font, 3, (100, 255, 0), 3)
+                #calculation of box surrounded hand
                 brect = calc_bounding_rect(image, hand_landmarks)
+                #draw box surrounded hand
                 image = draw_bounding_rect(True, image, brect)
                 image = draw_info_text(
                     image,
