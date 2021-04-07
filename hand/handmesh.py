@@ -118,6 +118,7 @@ def secondMode():
                 brect = calc_bounding_rect(image, hand_landmarks)
                 #draw box surrounded hand
                 image = draw_bounding_rect(True, image, brect)
+                #words of left and right
                 image = draw_info_text(
                     image,
                     brect,
