@@ -182,7 +182,7 @@ def hand_coordinate(image,hand_landmarks,handedness):
     posxLeft=0
     posyLeft=0
     info_text = handedness.classification[0].label[0:]
-    print(info_text)
+    #print(info_text)
     if info_text=="Left":
         
         for id, lm in enumerate(hand_landmarks.landmark):
