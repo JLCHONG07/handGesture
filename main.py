@@ -19,8 +19,8 @@ app.add_url_rule('/tryItOut/mouse_controller_with_hand/open_window_ui', 'open_wi
 
 app.add_url_rule('/tryItOut/handRecognizeMode1','handRecognizeMode1',classControl.handModeRecognize1)
 app.add_url_rule('/tryItOut/handRecognizeMode1/recognizeMode1','recognizeMode1',classControl.recognizeMode1)
-app.add_url_rule('/tryItOut/handRecognizeMode1','handRecognizeMode2',classControl.handModeRecognize2)
-app.add_url_rule('/tryItOut/handRecognizeMode1/recognizeMode2','recognizeMode2',classControl.recognizeMode2)
+app.add_url_rule('/tryItOut/handRecognizeMode2','handRecognizeMode2',classControl.handModeRecognize2)
+app.add_url_rule('/tryItOut/handRecognizeMode2/recognizeMode2','recognizeMode2',classControl.recognizeMode2)
 
 
 if __name__=="__main__":

@@ -1,9 +1,9 @@
 {% extends 'home.html' %}
-{% block title %}Real Time Hand Recognition{% endblock %}
+{% block title %}Real Time Finger Count{% endblock %}
 {% block content %}
 
 <div class="container">
-    <h3>Real Time Hand Recognition 1</h3>
+    <h3>Real Time Finger Count</h3>
 </div>
 
  <br/> 
@@ -14,7 +14,7 @@
     </div>
   </div>
     <div align="center">
-        <img src="{{ url_for('recognizeMode1') }}"> 
+        <img src="{{ url_for('recognizeMode2') }}"> 
     
 </div>
 
@@ -22,7 +22,7 @@
 
 <div align="center">
     <a class="btn btn-outline-primary" href="{{ url_for('home') }}">Back to Homepage</a>
-    <a class="btn btn-outline-primary" href="{{ url_for('handRecognizeMode2') }}">Change to Mode 2</a>
+    <a class="btn btn-outline-primary" href="{{ url_for('handRecognizeMode1') }}">Change to Mode 1</a>
 </div>
 
 <script>
