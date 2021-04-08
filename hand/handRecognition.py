@@ -61,7 +61,7 @@ def rmStartMode1():
             elif fingers==[0,0,1,1,1]:
                 signMeaning="Ok"
             elif fingers==[0,0,1,0,0]:
-                signMeaning="No! Don't do that hand sign!"
+                signMeaning="No! Don't do that!"
             elif fingers==[0,1,0,0,1]:
                 signMeaning="You Rock!"
             elif fingers==[1,0,0,0,1]:

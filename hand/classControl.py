@@ -3,6 +3,7 @@ import os
 from hand.handmesh import openCam, secondMode
 from mouse_controller_with_hand_gesture import mouse_controller as mc
 from hand.handRecognition import rmStartMode1
+from hand.fingerCount import rmStartMode2
 
 def homePage():
     return render_template('home.html')
@@ -37,3 +38,9 @@ def handModeRecognize1():
 
 def recognizeMode1():
     return Response(rmStartMode1(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+def handModeRecognize2():
+    return render_template('handRecogFingerCount.html')
+
+def recognizeMode2():
+    return Response(rmStartMode2(),mimetype='multipart/x-mixed-replace; boundary=frame')
