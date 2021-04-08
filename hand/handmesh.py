@@ -21,6 +21,7 @@ def openCam():
         success, image = cap.read()
         if not success:
          print("Ignoring empty camera frame.")
+         cv2.destroyAllWindows()
          # If loading a video, use 'break' instead of 'continue'.
          continue
         # Flip the image horizontally for a later selfie-view display, and convert
@@ -71,6 +72,7 @@ def secondMode():
         success, image = cap.read()
         if not success:
          print("Ignoring empty camera frame.")
+         cv2.destroyAllWindows()
          # If loading a video, use 'break' instead of 'continue'.
          continue
         # Flip the image horizontally for a later selfie-view display, and convert
@@ -111,8 +113,8 @@ def secondMode():
                 cx,cy=hand_coordinate(image,hand_landmarks,handedness)
                 #right hand coordinate
                 cx2,cy2=hand_coordinate2(image,hand_landmarks,handedness)
-                image=cv2.putText(image, f'Left : {str(cx)} {str(cy)}', (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (100, 255, 0), 3)
-                image=cv2.putText(image, f'Right: {str(cx2)} {str(cy2)}', (10, 110), cv2.FONT_HERSHEY_PLAIN, 3, (100, 255, 0), 3)
+                image=cv2.putText(image, f'Left : {str(cx)}  {str(cy)}', (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (100, 255, 0), 3)
+                image=cv2.putText(image, f'Right : {str(cx2)}  {str(cy2)}', (10, 110), cv2.FONT_HERSHEY_PLAIN, 3, (100, 255, 0), 3)
                 #image=cv2.putText(image, f'{str(cy)}', (50, 80), font, 3, (100, 255, 0), 3)
                 #calculation of box surrounded hand
                 brect = calc_bounding_rect(image, hand_landmarks)
@@ -158,7 +160,7 @@ def draw_bounding_rect(use_brect, image, brect):
     if use_brect:
          # External Rectangle
         cv2.rectangle(image, (brect[0], brect[1]), (brect[2], brect[3]),
-                     (255,0,255), 3)
+                     (255,0,255), 2)
 
     return image
 
@@ -180,9 +182,12 @@ def hand_coordinate(image,hand_landmarks,handedness):
     posxLeft=0
     posyLeft=0
     info_text = handedness.classification[0].label[0:]
+    print(info_text)
     if info_text=="Left":
         
         for id, lm in enumerate(hand_landmarks.landmark):
+            #print("Left Hand :")
+            #print(id,lm)
             h,w,c=image.shape
             cx,cy=int(lm.x*w),int(lm.y*h)
             if id==0:
@@ -210,6 +215,8 @@ def hand_coordinate2(image,hand_landmarks,handedness):
     if info_text=="Right":
         
         for id, lm in enumerate(hand_landmarks.landmark):
+            #print("Right Hand :")
+            #print(id,lm)
             h,w,c=image.shape
             cx,cy=int(lm.x*w),int(lm.y*h)
             if id==0:
