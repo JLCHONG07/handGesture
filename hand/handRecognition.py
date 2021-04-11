@@ -66,12 +66,16 @@ def rmStartMode1():
                 signMeaning="You Rock!"
             elif fingers==[1,0,0,0,1]:
                 signMeaning="666"
+            elif fingers==[0,0,0,0,0]:
+                signMeaning="Fist"
             else:
                 signMeaning="No meaning..."
 
+
+
             #print(signMeaning)
             
-            #signMeaning= "Testing"
+            print(fingers)
             print(signMeaning)
             cv2.putText(img,str(signMeaning),(45,375),cv2.FONT_HERSHEY_PLAIN,4,(0,0,255),2)
 
