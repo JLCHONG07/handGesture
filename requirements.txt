@@ -1,0 +1,9 @@
+
+
+Flask==1.1.2
+gunicorn
+mediapipe
+numpy
+OpenCV
+PyAutoGUI
+Tensorflow
