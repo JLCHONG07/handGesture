@@ -83,6 +83,7 @@ def rmStartMode1():
         cTime= time.time()
         fps= 1/(cTime-pTime)
         pTime=cTime
+        
         cv2.putText(img, f'FPS:{int(fps)}', (7, 70), cv2.FONT_HERSHEY_PLAIN, 3, (100, 255, 0), 3, cv2.LINE_AA)
         webFrame=  cv2.imencode('.jpg', img)[1].tobytes()
         yield b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + webFrame + b'\r\n'

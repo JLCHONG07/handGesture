@@ -34,13 +34,15 @@ def open_window_ui():
 
 
 def handModeRecognize1():
-    return render_template('handRecogize.html')
+    name = "alvin"
+    return render_template('handRecogize.html', name = name)
 
 def recognizeMode1():
     return Response(rmStartMode1(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
-def handModeRecognize2():
-    return render_template('handRecogFingerCount.html')
-
 def recognizeMode2():
     return Response(rmStartMode2(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+def handModeRecognize2():
+
+    return render_template('handRecogFingerCount.html')

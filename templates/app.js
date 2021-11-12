@@ -1,0 +1,1 @@
+let testVariable = document.getElementById("count")
